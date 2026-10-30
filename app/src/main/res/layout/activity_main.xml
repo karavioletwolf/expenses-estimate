@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F4F6F8">
+
+    <!-- Top Navigation & Total Tally Header -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="3dp"
+        app:cardCornerRadius="0dp"
+        app:cardBackgroundColor="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="14dp">
+
+            <!-- Month Switcher -->
+            <ImageButton
+                android:id="@+id/btnPrevMonth"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_media_previous"
+                android:contentDescription="Previous Month" />
+
+            <TextView
+                android:id="@+id/tvCurrentMonth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="October 2026"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btnNextMonth"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_media_next"
+                android:contentDescription="Next Month" />
+
+            <!-- Top-Right Tally Box -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="end"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MONTH TOTAL"
+                    android:textColor="#757575"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTotalTally"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$0.00"
+                    android:textColor="#2E7D32"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Days of Week Header Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"
+        android:background="#EAEFF5">
+
+        <TextView style="@style/DayOfWeekLabel" android:text="SUN" />
+        <TextView style="@style/DayOfWeekLabel" android:text="MON" />
+        <TextView style="@style/DayOfWeekLabel" android:text="TUE" />
+        <TextView style="@style/DayOfWeekLabel" android:text="WED" />
+        <TextView style="@style/DayOfWeekLabel" android:text="THU" />
+        <TextView style="@style/DayOfWeekLabel" android:text="FRI" />
+        <TextView style="@style/DayOfWeekLabel" android:text="SAT" />
+    </LinearLayout>
+
+    <!-- Calendar Grid (7 Columns) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCalendarGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:clipToPadding="false" />
+
+    <!-- Subheader for Month Overview -->
+    <TextView
+        android:id="@+id/tvListHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="6dp"
+        android:text="All Bills Due This Month"
+        android:textColor="#616161"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <!-- List of Scheduled Items for the Month -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMonthExpenses"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="6dp"
+            android:clipToPadding="false" />
+
+        <TextView
+            android:id="@+id/tvEmptyState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Tap any day above to add an expense."
+            android:textColor="#9E9E9E"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddExpense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:contentDescription="Add Expense"
+            android:src="@android:drawable/ic_input_add"
+            app:backgroundTint="#1976D2"
+            app:tint="#FFFFFF" />
+    </FrameLayout>
+</LinearLayout>

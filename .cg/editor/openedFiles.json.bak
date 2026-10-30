@@ -1,0 +1,21 @@
+{
+  "allFiles": [
+    {
+      "file": "/sdcard/CodeOnTheGoProjects/ExpensesEstimate/app/build.gradle.kts",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 766,
+          "line": 31
+        },
+        "start": {
+          "column": 0,
+          "index": 766,
+          "line": 31
+        }
+      }
+    }
+  ],
+  "projectPath": "/sdcard/CodeOnTheGoProjects/ExpensesEstimate",
+  "selectedFile": "/sdcard/CodeOnTheGoProjects/ExpensesEstimate/app/build.gradle.kts"
+}
